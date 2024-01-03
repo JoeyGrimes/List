@@ -2,20 +2,10 @@
 #include <stdlib.h>
 
 
-int main() {
-LinkedList* list = init();
-
-
-
-    return 0;
-}
-
-
-
 //representative of each element within the actual list itself
 typedef struct Node{
     // this is CURRENTLY NULL POINTER
-    struct Node *next; 
+    struct Node *next;
     int val;
 } Node;
 
@@ -37,5 +27,13 @@ LinkedList* init(){
     ptrList->firstNode = NULL;
     return ptrList;
 
+}
+
+int main() {
+    LinkedList* list = init();
+
+
+
+    return 0;
 }
 
