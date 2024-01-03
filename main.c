@@ -15,7 +15,7 @@ LinkedList* list = init();
 //representative of each element within the actual list itself
 typedef struct Node{
     // this is CURRENTLY NULL POINTER
-    struct Node *next; LL
+    struct Node *next; 
     int val;
 } Node;
 
