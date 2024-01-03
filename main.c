@@ -29,9 +29,18 @@ LinkedList* init(){
 
 }
 
+
 int main() {
     LinkedList* list = init();
-
+    //functionalities I need to add:
+    //add
+    // - iterate through the list til I fall off of it and hit null, then insert new node at the ending null value
+    //delete
+    // - iterate through til I hit a certain value, I need to remove and then point the previous node to the next node
+    //get
+    //- iterate through and see if any nodes equal the target node value, then return the index
+    //contains
+    // - return bool, iterate through to see if target val equals any of the nodes. all runtime will be O(n)
 
 
     return 0;
