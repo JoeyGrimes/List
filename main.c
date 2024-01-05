@@ -26,8 +26,24 @@ LinkedList* init(){
     LinkedList* ptrList = (LinkedList*)malloc(sizeof(LinkedList));
     ptrList->firstNode = NULL;
     return ptrList;
-
 }
+
+
+//add functionality
+//Hit the end of the list and then add
+LinkedList* add(LinkedList* list, int num){
+    Node* ins = (Node*) malloc(sizeof(Node));
+    ins->val = num;
+    if (list->firstNode == NULL) {
+        list->firstNode = ins;
+        ins->next = NULL;
+    }
+    else{
+        while ()
+    }
+}
+
+
 
 
 int main() {
