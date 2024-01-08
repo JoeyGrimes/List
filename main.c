@@ -55,14 +55,16 @@ LinkedList* add(LinkedList* list, int num){
 }
 
 void printList(LinkedList* list){
+    printf("Printing list : ");
     Node* nd = list->firstNode;
         while(nd != NULL){
-            printf(nd);
+            printf("%d ",nd->val);
             nd = nd->next;
         }
+        printf("\n");
     }
 
-Bool contains(LinkedList* list, int val){
+bool contains(LinkedList* list, int val){
     Node* nd = list-> firstNode;
     while(nd != NULL){
         int temp = nd->val;
@@ -122,32 +124,47 @@ bool isEmpty(LinkedList* list){
     return false;
 }
 
+
+
 LinkedList* delete(LinkedList* list, int value){
+    //use your other functions to help you here.
+
     Node* nd = list->firstNode;
-    
+    Node* prev = NULL;
+    if (nd->val == value){
+        prev = nd->next;
+        free(nd);
+        return list;
+    }
+    while(nd != NULL){
+        //if I hit the right node
+        // I need to point the old to the deleteds next
+        if (nd->val == value){
+            prev->next = nd->next;
+            free(nd);
+        }
+        else{
+           prev = nd;
+           nd = nd->next;
+        }
+    }
+    return list;
+
 }
 
 
 
 int main() {
     LinkedList* list = init();
-    //functionalities I need to add:
-    // implement
+    add(list,9);
+    delete(list, 9);
 
-//    void remove(LinkedList *list, int value);
-//    bool isEmpty(LinkedList *list);
+    printf(isEmpty(list) ? "true\n" : "false\n");
 
-
-
-    // - iterate through the list til I fall off of it and hit null, then insert new node at the ending null value
-    //delete
-    // - iterate through til I hit a certain value, I need to remove and then point the previous node to the next node
-    //get
-    //- iterate through and see if any nodes equal the target node value, then return the index
-    //contains
-    // - return bool, iterate through to see if target val equals any of the nodes. all runtime will be O(n)
-
-
+    
+    //functionalities that work:
+    //print, contains, add, isEmpty, getSize, get, getIdx
+    //fix delete
     return 0;
 }
 
