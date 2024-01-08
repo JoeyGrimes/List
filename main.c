@@ -127,27 +127,31 @@ bool isEmpty(LinkedList* list){
 
 
 LinkedList* delete(LinkedList* list, int value){
-    //use your other functions to help you here.
 
     Node* nd = list->firstNode;
     Node* prev = NULL;
     if (nd->val == value){
-        prev = nd->next;
+        list->firstNode =  nd->next;
         free(nd);
         return list;
     }
+
+
+
     while(nd != NULL){
         //if I hit the right node
         // I need to point the old to the deleteds next
         if (nd->val == value){
             prev->next = nd->next;
             free(nd);
+            return list;
         }
         else{
            prev = nd;
            nd = nd->next;
         }
     }
+    printf("Value not found\n");
     return list;
 
 }
@@ -157,11 +161,15 @@ LinkedList* delete(LinkedList* list, int value){
 int main() {
     LinkedList* list = init();
     add(list,9);
-    delete(list, 9);
+    add(list, 3);
+    add(list, 10);
+    printf(contains(list, 10) ? "true\n" : "false\n");
+    delete(list, 10);
+    printf(contains(list, 10) ? "true\n" : "false\n");
+    printList(list);
+    //printf(isEmpty(list) ? "true\n" : "false\n");
 
-    printf(isEmpty(list) ? "true\n" : "false\n");
 
-    
     //functionalities that work:
     //print, contains, add, isEmpty, getSize, get, getIdx
     //fix delete
